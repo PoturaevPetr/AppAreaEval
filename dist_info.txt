@@ -1,0 +1,1 @@
+pyinstaller run.py --name=App.exe --distpath="./distAppEvalArea" --hidden-import=pypugjs.ext.jinja --onefile
