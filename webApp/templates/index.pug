@@ -1,0 +1,63 @@
+include application
+script(type="text/javascript", src="/js/app.js?q="~randomString())
+
+.container  
+    .row 
+        .col-3
+            .row
+                .col-12
+                    label="Вид сверху" 
+                    input.form-control#preview_top_input(type="file" data-preview="preview_top" data-type="top")
+                    #preview_top
+                //.col-6
+                    label="Вид сбоку" 
+                    input.form-control#preview_side_input(type="file" data-preview="preview_side" data-type="side")
+                    #preview_side
+             .row 
+                .col-12
+                    label="Срез по оси X (0)"
+                    input.form-control.slice#x0(type="number")
+                .col-12
+                    label="Срез по оси X (1)"
+                    input.form-control.slice#x1(type="number")
+                .col-12
+                    label="Срез по оси Y (0)"
+                    input.form-control.slice#y0(type="number")
+                .col-12
+                    label="Срез по оси Y (1)"
+                    input.form-control.slice#y1(type="number")
+                hr.my-1
+                .col-12
+                    label="Длина профиля (Xr)" 
+                    input.form-control#real_x(type="text" value=1)
+                .col-12
+                    label="Ширина профиля (Yr)" 
+                    input.form-control#real_y(type="text" value=1)
+                .col-12
+                    label="Высота профиля" 
+                    input.form-control#real_z(type="text" value=1)
+                .col-12 
+                    label="Алгоритм поиска объектов"
+                    select.form-select#mode
+                        option(value="gausian")="Гауссово распределение"
+                        option(value="mean")="Среднее значение в окрестности"
+                        option(value="tresh")="По пороговому значению"
+                .col-12
+                    label="Пороговое значение" 
+                    input.form-control#tresh(type="text" value=100)
+                .col-12
+                    label="Минимальный размер обекта (px)" 
+                    input.form-control#sep(type="text" value=0)
+            .row.mt-2
+                .col-12     
+                    button.btn.btn-primary.float-end#start_eval="Расчет"
+           
+        .col-9#result
+            .row#list_imgs
+            .row 
+                .col-12 
+                    img.w-100#image_edit
+                    .row#calc_result
+                       
+                   
+                        
